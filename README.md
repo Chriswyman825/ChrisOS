@@ -82,9 +82,50 @@ The vault is the single source of truth. Skills read from and write to the vault
 
 ---
 
-## Quickstart (15 minutes)
+## Getting Started
 
-### 1. Set up your vault (~3 minutes)
+There are two ways to set up ChrisOS. Pick whichever fits your comfort level.
+
+### Option A: Let Claude do it (recommended)
+
+If you are new to Claude Code, this is the easiest path. Claude will ask you questions about your work and set everything up for you.
+
+**Step 1: Install Claude Code.**
+Claude Code is Anthropic's CLI tool. Install it by following the instructions at [claude.ai/code](https://claude.ai/code). You will need a Claude Pro or Team subscription.
+
+**Step 2: Clone this repo.**
+Open your terminal (on Mac: Cmd + Space, type "Terminal", hit Enter) and run:
+
+```bash
+git clone https://github.com/Chriswyman825/ChrisOS.git
+cd ChrisOS
+```
+
+**Step 3: Start Claude Code and let it set things up.**
+In the same terminal, run:
+
+```bash
+claude
+```
+
+This opens Claude Code. Now paste this prompt:
+
+```
+I just cloned ChrisOS and I want to set up a personal operating system based on this repo. Read the README, the skills in skills/, and the vault template. Then ask me the questions you need to tailor this to my work -- my role, my tools, my daily workflow. Once you understand my setup, scaffold everything: create my vault, write my MEMORY.md, install and customize the skills, and walk me through my first morning routine.
+```
+
+Claude will read the repo, ask you about your role and tools, and build your system. Expect this to take 15-20 minutes of back-and-forth.
+
+**Step 4: Use it.**
+The next morning, open Claude Code from your vault directory and type `/morning-routine`. That is it. The system starts learning from day one.
+
+---
+
+### Option B: Manual setup (15 minutes)
+
+If you already use Claude Code and prefer to set things up yourself.
+
+#### 1. Set up your vault (~3 minutes)
 
 Copy the `vault-template/` directory to wherever you want your vault to live. If you use Obsidian, open it as a new vault.
 
@@ -94,7 +135,7 @@ cp -r vault-template/ ~/Documents/MyOS/
 
 Read `vault-template/README.md` to understand the three-tier taxonomy (Projects, Working notes, Records).
 
-### 2. Write your MEMORY.md (~5 minutes)
+#### 2. Write your MEMORY.md (~5 minutes)
 
 Create `~/.claude/projects/-/memory/MEMORY.md`. This is how Claude remembers who you are, where your vault is, and how your system works. Start simple:
 
@@ -119,7 +160,7 @@ Create `~/.claude/projects/-/memory/MEMORY.md`. This is how Claude remembers who
 
 You will add to this over time. The self-review skill will even propose additions for you.
 
-### 3. Install your first skill (~3 minutes)
+#### 3. Install your first skill (~3 minutes)
 
 Copy the morning routine skill to your Claude skills directory:
 
@@ -130,7 +171,7 @@ cp skills/morning-routine/SKILL.md ~/.claude/skills/morning-routine/SKILL.md
 
 Open the file and follow the `<!-- CUSTOMIZE -->` comments to adapt it to your setup.
 
-### 4. Run it (~4 minutes)
+#### 4. Run it (~4 minutes)
 
 Open Claude Code and type:
 
