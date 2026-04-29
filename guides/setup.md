@@ -6,11 +6,11 @@ This guide walks you through setting up your own personal OS from scratch. By th
 
 ## Prerequisites
 
-1. **Claude Code** -- You need an active Claude subscription with access to Claude Code. This is the engine that runs everything.
+1. **Claude Code** -- You need an active Claude subscription with access to Claude Code. This is the engine that runs everything. Install at [claude.ai/code](https://claude.ai/code).
 
-2. **A text editor** -- Obsidian is recommended (free for personal use, local-first, great for markdown). But any markdown editor or even a plain text editor works.
+2. **Obsidian** (recommended) -- Free, local-first markdown editor with backlinks, graph view, and tags. Download at [obsidian.md](https://obsidian.md). Not strictly required (any markdown editor works), but ChrisOS is designed around Obsidian's features.
 
-3. **A terminal** -- You will need to create directories and copy files.
+3. **A terminal** -- You will need to create directories and copy files. On Mac: Cmd + Space, type "Terminal", hit Enter.
 
 4. **~15 minutes** for the initial setup. Another 15-30 minutes to run your first morning routine and get a feel for the flow.
 
@@ -25,7 +25,31 @@ The vault is where all your data lives. Copy the template:
 cp -r vault-template/ ~/Documents/MyOS/
 ```
 
-If you are using Obsidian, open `~/Documents/MyOS/` as a new vault (File > Open Vault > Open folder as vault).
+### Set up Obsidian
+
+1. Download and install Obsidian from [obsidian.md](https://obsidian.md) if you haven't already
+2. Open Obsidian
+3. Click "Open" next to "Open folder as vault"
+4. Select your vault folder (`~/Documents/MyOS/`)
+5. Obsidian will create a `.obsidian/` config folder inside your vault (this is normal and already excluded via `.gitignore`)
+
+### Recommended Obsidian settings
+
+Once your vault is open:
+
+1. **Settings > Files and links > Default location for new attachments** -- set to a subfolder like `attachments/` to keep binaries out of your notes
+2. **Settings > Core plugins** -- enable these built-in plugins:
+   - **Backlinks** -- shows which notes link to the current note
+   - **Graph view** -- visual map of connections between your notes
+   - **Tags** -- browse notes by tag
+   - **Templates** -- reusable note templates
+   - **Daily notes** -- quick-create today's note (optional since Claude creates these for you)
+3. **Settings > Community plugins** -- consider these after you're comfortable:
+   - **Obsidian Git** -- auto-backup your vault to a private GitHub repo
+   - **Dataview** -- query your notes like a database (useful for task views)
+   - **Calendar** -- visual calendar in the sidebar linked to daily notes
+
+Don't worry about getting all of this right on day one. The core system works with zero Obsidian plugins. These just make browsing and navigating your vault nicer over time.
 
 You now have:
 ```
@@ -195,3 +219,24 @@ Once you are comfortable with the morning routine:
 4. **Grow your MEMORY.md** -- As you notice patterns in how you correct Claude, add rules to your memory file. Or let the self-review propose them.
 
 The general principle: start simple, add complexity only when you feel the need for it.
+
+---
+
+## Obsidian tips for ChrisOS
+
+A few things to know about how Obsidian renders markdown, especially if Claude is writing to your vault:
+
+- **`#word` mid-line creates a tag.** If you want a literal hashtag (like a Slack channel name), wrap it in backticks: `` `#channel-name` ``
+- **`[[text]]` creates an internal link.** Useful for connecting notes. Don't create them accidentally.
+- **`- [x]` renders with strikethrough.** Only use for actual completed tasks, not for status indicators on informational content.
+- **Headers, tables, and standard markdown** work as expected.
+- **The graph view** gets more useful over time as notes link to each other. The self-review and entity tagging features in ChrisOS are designed to build these connections automatically.
+
+If you add Obsidian formatting rules to your MEMORY.md, Claude will follow them when writing to your vault. For example:
+
+```markdown
+## Obsidian Formatting Rules
+- Slack channels: wrap in backticks to prevent Obsidian from creating tags
+- Only use bare #word when intentionally creating a tag
+- Headers (#) at the start of a line are fine (standard markdown heading)
+```
