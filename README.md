@@ -82,36 +82,63 @@ There are two ways to set up ChrisOS. Pick whichever fits your comfort level.
 
 ### Option A: Let Claude do it (recommended)
 
-If you are new to Claude Code, this is the easiest path. Claude will ask you questions about your work and set everything up for you.
+If you are new to Claude Code (or have never used it), this is the easiest path. Claude will ask you questions about your work and set everything up for you.
 
 **Step 1: Install Claude Code.**
-Claude Code is Anthropic's CLI tool. Install it by following the instructions at [claude.ai/code](https://claude.ai/code). You will need a Claude Pro or Team subscription.
+Claude Code is Anthropic's command-line tool. It runs in your terminal (the text-based interface on your computer) and can read and write files on your machine. That's what makes this whole system work.
 
-**Step 2: Clone this repo.**
-Open your terminal (on Mac: Cmd + Space, type "Terminal", hit Enter) and run:
+To install it:
+1. You need a Claude Pro or Team subscription at [claude.ai](https://claude.ai)
+2. Follow the install instructions at [claude.ai/code](https://claude.ai/code)
+3. If you've never used a terminal before: on Mac, press Cmd + Space, type "Terminal", and hit Enter. That's your terminal.
+
+**Step 2: Download this repo.**
+In your terminal, run these commands one at a time. This downloads ChrisOS into your Documents folder:
 
 ```bash
+cd ~/Documents
 git clone https://github.com/Chriswyman825/ChrisOS.git
 cd ChrisOS
 ```
 
-**Step 3: Start Claude Code and let it set things up.**
-In the same terminal, run:
+If you get an error about `git` not being found, you may need to install it first. On Mac, the terminal will prompt you to install developer tools -- say yes and try again.
+
+**Step 3: Install Obsidian (recommended).**
+Obsidian is a free app for browsing and editing your notes. Download it at [obsidian.md](https://obsidian.md). You don't need it to get started, but it makes navigating your vault much nicer.
+
+**Step 4: Start Claude Code and let it set things up.**
+In the same terminal (you should still be in the ChrisOS folder), run:
 
 ```bash
 claude
 ```
 
-This opens Claude Code. Now paste this prompt:
+This starts Claude Code. You'll see a text prompt where you can type or paste messages. Paste this:
 
 ```
-I just cloned ChrisOS and I want to set up a personal operating system based on this repo. Read the README, the skills in skills/, and the vault template. Then ask me the questions you need to tailor this to my work -- my role, my tools, my daily workflow. Once you understand my setup, scaffold everything: create my vault, write my MEMORY.md, install and customize the skills, and walk me through my first morning routine.
+I just cloned ChrisOS and I want to set up a personal operating system based on this repo. My vault should live in my Documents folder (~/Documents/MyOS/). Read the README, the skills in skills/, and the vault template. Then ask me the questions you need to tailor this to my work -- my role, my tools, my daily workflow. Once you understand my setup, scaffold everything: create my vault in ~/Documents/MyOS/, write my MEMORY.md, install and customize the skills, and walk me through my first morning routine.
 ```
 
-Claude will read the repo, ask you about your role and tools, and build your system. Expect this to take 15-20 minutes of back-and-forth.
+Claude will read through the repo, then ask you a series of questions about your role, your tools (calendar, email, Slack, meeting notes), and how you work. Based on your answers, it will:
+- Create your vault folder at `~/Documents/MyOS/` with the right structure
+- Write a MEMORY.md file that describes who you are and how you work
+- Install and customize the skills to match your setup
+- Walk you through your first morning routine
 
-**Step 4: Use it.**
-The next morning, open Claude Code from your vault directory and type `/morning-routine`. That is it. The system starts learning from day one.
+This takes about 15-20 minutes.
+
+**Step 5: Open your vault in Obsidian.**
+Once Claude has created your vault, open Obsidian and click "Open" next to "Open folder as vault." Select `~/Documents/MyOS/` (or wherever Claude put your vault). Now you can browse all your notes visually.
+
+**Step 6: Use it daily.**
+Each morning, open your terminal, navigate to your vault, and start Claude Code:
+
+```bash
+cd ~/Documents/MyOS
+claude
+```
+
+Then type `/morning-routine`. That's it. The system starts learning from day one. Each evening, run `/evening-routine` to close the loop.
 
 ---
 
@@ -121,11 +148,13 @@ If you already use Claude Code and prefer to set things up yourself.
 
 #### 1. Set up your vault (~3 minutes)
 
-Copy the `vault-template/` directory to wherever you want your vault to live. If you use Obsidian, open it as a new vault.
+Copy the `vault-template/` directory to your Documents folder (or wherever you want your vault to live):
 
 ```bash
 cp -r vault-template/ ~/Documents/MyOS/
 ```
+
+Then open Obsidian, click "Open" next to "Open folder as vault," and select `~/Documents/MyOS/`.
 
 Read `vault-template/README.md` to understand the three-tier taxonomy (Projects, Working notes, Records).
 
