@@ -10,23 +10,17 @@ It runs my mornings, processes my meetings, manages my tasks, and gets smarter e
 
 ChrisOS is a framework for turning Claude Code into a persistent personal assistant that actually knows your work. Instead of starting every conversation from scratch, you give Claude a structured knowledge base (an Obsidian vault), a set of automated workflows (skills), and a feedback loop that makes the whole system improve over time.
 
-It is not a product. It is not plug-and-play. It is a set of patterns and templates that you will customize to fit your role, your tools, and the way you work. If you are looking for something that works out of the box with zero configuration, this is not it. If you are looking for a framework that compounds in value the longer you use it, keep reading.
-
-**Created by [Chris Wyman](https://x.com/cewyman).**
+**Created by [Chris Wyman](https://www.linkedin.com/in/christopherwyman/).**
 
 ---
 
 ## Who is this for?
 
-People who already use Claude Code and want to systematize their daily workflows. Chiefs of Staff, ops leads, founders, EAs, anyone who manages a lot of context across many tools and wants a system that helps them stay on top of it all.
-
-You should be comfortable editing markdown files and not afraid of a `~/.claude` directory.
+People who already use Claude Code and want to systematize their daily workflows, or people who have never used Claude Code and are looking for a place to start. Chiefs of Staff, ops leads, founders, EAs, anyone who manages a lot of context across many tools, and wants a system that helps them stay on top of it all.
 
 ---
 
 ## The Core Idea
-
-Three concepts, three sentences:
 
 1. **Vault** -- A structured markdown knowledge base (Obsidian recommended) that serves as your single source of truth. Your tasks, meeting notes, daily reflections, and project files all live here in a clear taxonomy.
 
@@ -38,7 +32,7 @@ Three concepts, three sentences:
 
 ## What this gives you
 
-Here is what a typical day looks like once you have this running:
+Here is what a typical day looks like once this is running. These are all starting points, but you can ask Claude to modify these to fit your workflow.
 
 **Morning (~5 minutes)**
 You run `/morning-routine`. Claude checks whether last night's routine ran. It scans your calendar, email, Slack, and task list. It presents a briefing split into "FYI" and "needs your input." It proposes your top 3 priorities based on what is due, what carried over from yesterday, and what is on the calendar. You confirm or swap. Your daily note is created.
@@ -200,7 +194,7 @@ Start with morning routine. Add evening routine once morning feels solid. Add me
 
 This is the part that makes ChrisOS different from a collection of prompts.
 
-Every evening, Claude writes an interaction log capturing what skills ran, what ad hoc requests you made, what you corrected, and where there was friction. Every Thursday (or whatever cadence you choose), the self-review skill reads those logs and proposes improvements.
+Every evening, Claude writes an interaction log that captures which skills ran, what ad hoc requests you made, what you corrected, and where there was friction. Every Thursday (or whatever cadence you choose), the self-review skill reads those logs and proposes improvements.
 
 The key mechanics:
 
@@ -234,7 +228,7 @@ See [guides/customization.md](guides/customization.md) for a deeper walkthrough.
 ## FAQ
 
 **How much does this cost?**
-Claude Code requires a Claude subscription. MCP integrations are free (open source tools connecting to your existing accounts). Obsidian is free for personal use.
+Claude Code requires a Claude subscription. MCP integrations are free (open-source tools that connect to your existing accounts). Obsidian is free for personal use.
 
 **How much time does it take to set up?**
 The quickstart takes 15 minutes. Getting the full daily loop (morning + evening + meeting summaries) tuned takes a week or two of daily use. The feedback loop starts paying off after 2-3 weeks.
@@ -286,6 +280,6 @@ MIT. See [LICENSE](LICENSE).
 
 ## Credits
 
-Built by [Chris Wyman](https://x.com/cewyman). Born out of building a personal OS with Claude Code over several months and wanting to share the patterns that stuck.
+Built by [Chris Wyman](https://www.linkedin.com/in/christopherwyman/). Born out of building a personal OS with Claude Code over several months, and wanting to share the patterns that stuck.
 
 If you build something cool with this, I would love to hear about it.
